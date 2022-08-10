@@ -6,71 +6,78 @@ import (
 	"fyne.io/fyne/v2/widget"
 )
 
-type BingoField struct {
-	name      string
+var fullModeratorBoard = [][]ModeratorBoardButton{
+	{
+		{fieldName: "kod Witka", activated: false},
+		{fieldName: "Teamsy", activated: false},
+		{fieldName: "Unitree", activated: false},
+	},
+	{
+		{fieldName: "pogoda", activated: false},
+		{fieldName: "AgileBoard", activated: false},
+		{fieldName: "TimeTracker", activated: false},
+	},
+	{
+		{fieldName: "BitBucket", activated: false},
+		{fieldName: "syf w kiblu", activated: false},
+		{fieldName: "syf w kuchni", activated: false},
+	},
+}
+
+type ModeratorBoardButton struct {
+	widget.Button
+	fieldName string
 	activated bool
 }
 
 func (app *Config) getModeratorBoard() *fyne.Container {
-	app.ModeratorFields = app.getFieldsToPlayString()
-	app.ModeratorTable = app.getModeratorTable()
+	app.ModeratorGrid = app.getModeratorGrid()
 
-	holdingsContainer := container.NewBorder(
+	moderatorBoardContainer := container.NewBorder(
 		nil,
 		nil,
 		nil,
 		nil,
-		container.NewAdaptiveGrid(1, app.ModeratorTable),
+		container.NewAdaptiveGrid(1, app.ModeratorGrid),
 	)
 
-	//holdingsContainer.Resize(fyne.NewSize(300, 300))
-
-	return holdingsContainer
+	return moderatorBoardContainer
 }
 
-func (app *Config) getModeratorTable() *widget.Table {
-	t := widget.NewTable(
-		func() (int, int) {
-			return len(app.ModeratorFields), len(app.ModeratorFields[0])
-		},
-		func() fyne.CanvasObject {
-			ctr := container.NewVBox(widget.NewLabel(""))
-			return ctr
-		},
-		func(i widget.TableCellID, o fyne.CanvasObject) {
+func (app *Config) getModeratorGrid() *fyne.Container {
 
-			// we're just putting in textual information
-			o.(*fyne.Container).Objects = []fyne.CanvasObject{
-				widget.NewLabel(app.ModeratorFields[i.Row][i.Col].(string)),
+	grid := container.NewGridWithColumns(3)
+	for r := 0; r < 3; r++ {
+		for c := 0; c < 3; c++ {
+			grid.Add(newModeratorField(r, c))
+		}
+	}
+
+	return grid
+}
+func newModeratorField(row, column int) *ModeratorBoardButton {
+	i := &ModeratorBoardButton{fieldName: fullModeratorBoard[row][column].fieldName, activated: fullModeratorBoard[row][column].activated}
+	i.SetText(fullModeratorBoard[row][column].fieldName)
+	i.OnTapped = launchModeratorButton(i)
+	i.Importance = widget.LowImportance
+	i.ExtendBaseWidget(i)
+
+	return i
+}
+
+func launchModeratorButton(i *ModeratorBoardButton) func() {
+	return func() {
+		i.activated = true
+		i.Importance = widget.HighImportance
+		for _, board := range AllPlayersBoards {
+			for _, field := range board.board {
+				if field.fieldName == i.fieldName {
+					field.activated = true
+					field.Importance = widget.HighImportance
+					field.Refresh()
+				}
 			}
-		})
 
-	colWidths := []float32{100, 100, 100}
-	for i := 0; i < len(colWidths); i++ {
-		t.SetColumnWidth(i, colWidths[i])
+		}
 	}
-
-	return t
-}
-
-func (app *Config) getFieldsToPlay() [][]BingoField {
-
-	var board = [][]BingoField{
-		{BingoField{"kod Witka", false}, BingoField{"Teamsy", false}, BingoField{"Unitree", false}},
-		{BingoField{"pogoda", false}, BingoField{"AgileBoard", false}, BingoField{"TimeTracker", false}},
-		{BingoField{"BitBucket", false}, BingoField{"syf w kiblu", false}, BingoField{"syf w kuchni", false}},
-	}
-
-	return board
-}
-
-func (app *Config) getFieldsToPlayString() [][]interface{} {
-
-	var slice [][]interface{}
-
-	slice = append(slice, []interface{}{"kod Witka", "Teamsy", "Unitree"})
-	slice = append(slice, []interface{}{"pogoda", "AgileBoard", "TimeTracker"})
-	slice = append(slice, []interface{}{"BitBucket", "syf w kiblu", "syf w kuchni"})
-
-	return slice
 }

@@ -3,7 +3,6 @@ package main
 import (
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
-	"fyne.io/fyne/v2/widget"
 	"log"
 	"os"
 )
@@ -14,7 +13,8 @@ type Config struct {
 	InfoLog         *log.Logger
 	ErrorLog        *log.Logger
 	ModeratorFields [][]interface{}
-	ModeratorTable  *widget.Table
+	ModeratorGrid   *fyne.Container
+	PlayerGrid      *fyne.Container
 }
 
 func main() {
@@ -30,7 +30,7 @@ func main() {
 	myApp.ErrorLog = log.New(os.Stdout, "ERROR\t", log.Ldate|log.Ltime|log.Lshortfile)
 
 	// create and size a fyne window
-	myApp.MainWindow = fyneApp.NewWindow("GoldWatcher")
+	myApp.MainWindow = fyneApp.NewWindow("BINGO")
 	myApp.MainWindow.Resize(fyne.NewSize(770, 410))
 	myApp.MainWindow.SetFixedSize(true)
 	myApp.MainWindow.SetMaster()
