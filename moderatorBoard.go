@@ -22,6 +22,46 @@ var fullModeratorBoard = [][]ModeratorBoardButton{
 		{fieldName: "syf w kiblu", activated: false},
 		{fieldName: "syf w kuchni", activated: false},
 	},
+	{
+		{fieldName: "PM", activated: false},
+		{fieldName: "meble", activated: false},
+		{fieldName: "życie", activated: false},
+	},
+	{
+		{fieldName: "dupy z Tindera", activated: false},
+		{fieldName: "temperatura", activated: false},
+		{fieldName: "internet w firmie", activated: false},
+	},
+	{
+		{fieldName: "pieniądze", activated: false},
+		{fieldName: "polityka", activated: false},
+		{fieldName: "juniorzy", activated: false},
+	},
+	{
+		{fieldName: "devops", activated: false},
+		{fieldName: "gnój w projekcie", activated: false},
+		{fieldName: "estymacje", activated: false},
+	},
+	{
+		{fieldName: "dracha na muszli", activated: false},
+		{fieldName: "wyjebane puszki z kosza", activated: false},
+		{fieldName: "zmielona kawa", activated: false},
+	},
+	{
+		{fieldName: "smród", activated: false},
+		{fieldName: "wyjebane puszki z kosza", activated: false},
+		{fieldName: "zmielona kawa", activated: false},
+	},
+	{
+		{fieldName: "anime", activated: false},
+		{fieldName: "żeglarz", activated: false},
+		{fieldName: "opluwanie pracowników", activated: false},
+	},
+	{
+		{fieldName: "monitoring", activated: false},
+		{fieldName: "asd", activated: false},
+		{fieldName: "asd", activated: false},
+	},
 }
 
 type ModeratorBoardButton struct {

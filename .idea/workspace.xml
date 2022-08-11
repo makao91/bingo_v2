@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d0e377a-55d9-4081-835a-f53ccc831ae8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/moderatorBoard.go" beforeDir="false" afterPath="$PROJECT_DIR$/moderatorBoard.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/playerBoard.go" beforeDir="false" afterPath="$PROJECT_DIR$/playerBoard.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui.go" beforeDir="false" afterPath="$PROJECT_DIR$/ui.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +44,7 @@
     &quot;RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/marcin/GolandProjects/bingo_v2&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/marcin/GolandProjects/gold&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -91,7 +89,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/moderatorBoard.go</url>
-          <line>71</line>
+          <line>105</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
