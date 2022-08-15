@@ -49,18 +49,13 @@ var fullModeratorBoard = [][]ModeratorBoardButton{
 	},
 	{
 		{fieldName: "smród", activated: false},
-		{fieldName: "wyjebane puszki z kosza", activated: false},
-		{fieldName: "zmielona kawa", activated: false},
+		{fieldName: "monitoring", activated: false},
+		{fieldName: "asd", activated: false},
 	},
 	{
 		{fieldName: "anime", activated: false},
 		{fieldName: "żeglarz", activated: false},
 		{fieldName: "opluwanie pracowników", activated: false},
-	},
-	{
-		{fieldName: "monitoring", activated: false},
-		{fieldName: "asd", activated: false},
-		{fieldName: "asd", activated: false},
 	},
 }
 
@@ -71,14 +66,14 @@ type ModeratorBoardButton struct {
 }
 
 func (app *Config) getModeratorBoard() *fyne.Container {
-	app.ModeratorGrid = app.getModeratorGrid()
+	moderatorGrid := app.getModeratorGrid()
 
 	moderatorBoardContainer := container.NewBorder(
 		nil,
 		nil,
 		nil,
 		nil,
-		container.NewAdaptiveGrid(1, app.ModeratorGrid),
+		container.NewAdaptiveGrid(1, moderatorGrid),
 	)
 
 	return moderatorBoardContainer
@@ -87,29 +82,28 @@ func (app *Config) getModeratorBoard() *fyne.Container {
 func (app *Config) getModeratorGrid() *fyne.Container {
 
 	grid := container.NewGridWithColumns(3)
-	for r := 0; r < 3; r++ {
+	for r := 0; r < 10; r++ {
 		for c := 0; c < 3; c++ {
-			grid.Add(newModeratorField(r, c))
+			grid.Add(app.newModeratorField(r, c))
 		}
 	}
 
 	return grid
 }
-func newModeratorField(row, column int) *ModeratorBoardButton {
+func (app *Config) newModeratorField(row, column int) *ModeratorBoardButton {
 	i := &ModeratorBoardButton{fieldName: fullModeratorBoard[row][column].fieldName, activated: fullModeratorBoard[row][column].activated}
 	i.SetText(fullModeratorBoard[row][column].fieldName)
-	i.OnTapped = launchModeratorButton(i)
+	i.OnTapped = app.launchModeratorButton(i)
 	i.Importance = widget.LowImportance
 	i.ExtendBaseWidget(i)
 
 	return i
 }
 
-func launchModeratorButton(i *ModeratorBoardButton) func() {
+func (app *Config) launchModeratorButton(i *ModeratorBoardButton) func() {
 	return func() {
 		i.activated = true
-		i.Importance = widget.HighImportance
-		for _, board := range AllPlayersBoards {
+		for _, board := range app.AllPlayersBoards {
 			for _, field := range board.board {
 				if field.fieldName == i.fieldName {
 					field.activated = true

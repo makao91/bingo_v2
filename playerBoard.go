@@ -12,7 +12,7 @@ var name string
 
 func (app *Config) getPlayerBoard(playerName string) *fyne.Container {
 	name = playerName
-	app.PlayerGrid = app.getPlayerGrid()
+	playerGrid := app.getPlayerGrid()
 	player := widget.NewLabel(playerName)
 	player.Alignment = fyne.TextAlignCenter
 
@@ -21,7 +21,7 @@ func (app *Config) getPlayerBoard(playerName string) *fyne.Container {
 		widget.NewSeparator(),
 		widget.NewSeparator(),
 		widget.NewSeparator(),
-		container.NewAdaptiveGrid(1, app.PlayerGrid),
+		container.NewAdaptiveGrid(1, playerGrid),
 	)
 
 	return playerBoardContainer
@@ -40,7 +40,8 @@ func (app *Config) getPlayerGrid() *fyne.Container {
 			grid.Add(field)
 		}
 	}
-	AllPlayersBoards = append(AllPlayersBoards, playersBoard)
+	app.checkForBingo(playersBoard)
+	app.AllPlayersBoards = append(app.AllPlayersBoards, playersBoard)
 
 	return grid
 }
