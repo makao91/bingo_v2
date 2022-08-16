@@ -3,6 +3,8 @@ package main
 import (
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/container"
+	"fyne.io/fyne/v2/data/validation"
+	"fyne.io/fyne/v2/dialog"
 	"fyne.io/fyne/v2/widget"
 )
 
@@ -102,16 +104,42 @@ func (app *Config) newModeratorField(row, column int) *ModeratorBoardButton {
 
 func (app *Config) launchModeratorButton(i *ModeratorBoardButton) func() {
 	return func() {
-		i.activated = true
-		for _, board := range app.AllPlayersBoards {
-			for _, field := range board.board {
-				if field.fieldName == i.fieldName {
-					field.activated = true
-					field.Importance = widget.HighImportance
-					field.Refresh()
-				}
-			}
+		app.createModeratorPasswordDialog(i)
+	}
+}
 
+func (app *Config) createModeratorPasswordDialog(i *ModeratorBoardButton) {
+	password := widget.NewPasswordEntry()
+	password.Validator = validation.NewRegexp(`mchamp`, "Only true champion know the password")
+	// create a dialog
+	addForm := dialog.NewForm(
+		"Champion Board",
+		"Confirm",
+		"Cancel",
+		[]*widget.FormItem{
+			{Text: "Password", Widget: password},
+		},
+		func(valid bool) {
+			if valid {
+				app.activateModeratorButton(i)
+			}
+		},
+		app.MainWindow)
+
+	// size and show the dialog
+	addForm.Resize(fyne.Size{Width: 400})
+	addForm.Show()
+}
+
+func (app *Config) activateModeratorButton(i *ModeratorBoardButton) {
+	i.activated = true
+	for _, board := range app.AllPlayersBoards {
+		for _, field := range board.board {
+			if field.fieldName == i.fieldName {
+				field.activated = true
+				field.Importance = widget.HighImportance
+				field.Refresh()
+			}
 		}
 	}
 }
