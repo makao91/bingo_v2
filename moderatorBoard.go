@@ -6,6 +6,9 @@ import (
 	"fyne.io/fyne/v2/data/validation"
 	"fyne.io/fyne/v2/dialog"
 	"fyne.io/fyne/v2/widget"
+	"github.com/joho/godotenv"
+	"log"
+	"os"
 )
 
 var fullModeratorBoard = [][]ModeratorBoardButton{
@@ -110,7 +113,7 @@ func (app *Config) launchModeratorButton(i *ModeratorBoardButton) func() {
 
 func (app *Config) createModeratorPasswordDialog(i *ModeratorBoardButton) {
 	password := widget.NewPasswordEntry()
-	password.Validator = validation.NewRegexp(`mchamp`, "Only true champion know the password")
+	password.Validator = validation.NewRegexp(app.getEnvVariable("MODERATOR_PASSWORD"), "Only true champion know the password")
 	// create a dialog
 	addForm := dialog.NewForm(
 		"Champion Board",
@@ -142,4 +145,16 @@ func (app *Config) activateModeratorButton(i *ModeratorBoardButton) {
 			}
 		}
 	}
+}
+
+func (app *Config) getEnvVariable(key string) string {
+
+	// load .env file
+	err := godotenv.Load(".env")
+
+	if err != nil {
+		log.Fatalf("Error loading .env file")
+	}
+
+	return os.Getenv(key)
 }

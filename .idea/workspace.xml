@@ -5,7 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d0e377a-55d9-4081-835a-f53ccc831ae8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bingo_v2.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/bingo_v2.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/bingo_v2.wasm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/dark.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/light.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/spinner_dark.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/spinner_light.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/wasm_exec.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/webgl-debug.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/moderatorBoard.go" beforeDir="false" afterPath="$PROJECT_DIR$/moderatorBoard.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,7 +36,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" url="file://$USER_HOME$/.gvm/gos/go1.18" />
+  <component name="GOROOT" url="file://$USER_HOME$/.gvm/pkgsets/go1.18/global/go1.17.13" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -29,8 +45,6 @@
     <setting file="file://$PROJECT_DIR$/main.go" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/moderatorBoard.go" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/newPlayerButton.go" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/go/pkg/mod/fyne.io/fyne/v2@v2.2.3/dialog/form.go" root0="SKIP_INSPECTION" />
-    <setting file="file://$USER_HOME$/go/pkg/mod/fyne.io/fyne/v2@v2.2.3/widget/form.go" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -52,12 +66,15 @@
     "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
     "RunOnceActivity.go.watchers.conflict.with.on.save.actions.check.performed": "true",
     "WebServerToolWindowFactoryState": "false",
+    "configurable..is.expanded": "false",
+    "configurable.GoLibrariesConfigurable.is.expanded": "true",
     "go.import.settings.migrated": "true",
-    "last_opened_file_path": "/home/marcin/GolandProjects/fyne_demo",
+    "last_opened_file_path": "/home/marcin/GolandProjects/bingo_v2",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "go.sdk"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -106,6 +123,11 @@
           <url>file://$PROJECT_DIR$/ui.go</url>
           <line>34</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/moderatorBoard.go</url>
+          <line>115</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
