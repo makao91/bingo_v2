@@ -7,18 +7,6 @@ import (
 	"os"
 )
 
-type Config struct {
-	App                fyne.App
-	MainWindow         fyne.Window
-	InfoLog            *log.Logger
-	ErrorLog           *log.Logger
-	ModeratorFields    [][]interface{}
-	AllPlayersBoards   []PlayersBoard
-	AllPlayerContainer *fyne.Container
-	FinalPlayerContent *fyne.Container
-	CreatePlayerButton fyne.CanvasObject
-}
-
 func main() {
 
 	var myApp Config

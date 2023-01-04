@@ -41,6 +41,7 @@ func (app *Config) createNewPlayerDialog() func() {
 		// size and show the dialog
 		addForm.Resize(fyne.Size{Width: 400})
 		addForm.Show()
+		app.MainWindow.Canvas().Focus(insertedPlayerName)
 	}
 }
 

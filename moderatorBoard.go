@@ -55,12 +55,22 @@ var fullModeratorBoard = [][]ModeratorBoardButton{
 	{
 		{fieldName: "smród", activated: false},
 		{fieldName: "monitoring", activated: false},
-		{fieldName: "asd", activated: false},
+		{fieldName: "języki programowania", activated: false},
 	},
 	{
 		{fieldName: "anime", activated: false},
 		{fieldName: "żeglarz", activated: false},
 		{fieldName: "opluwanie pracowników", activated: false},
+	},
+	{
+		{fieldName: "wordpress", activated: false},
+		{fieldName: "dedlajny", activated: false},
+		{fieldName: "januszpol", activated: false},
+	},
+	{
+		{fieldName: "jebanie na czyiś kod", activated: false},
+		{fieldName: "klienci", activated: false},
+		{fieldName: "testy", activated: false},
 	},
 }
 
@@ -87,7 +97,7 @@ func (app *Config) getModeratorBoard() *fyne.Container {
 func (app *Config) getModeratorGrid() *fyne.Container {
 
 	grid := container.NewGridWithColumns(3)
-	for r := 0; r < 10; r++ {
+	for r := 0; r < len(fullModeratorBoard); r++ {
 		for c := 0; c < 3; c++ {
 			grid.Add(app.newModeratorField(r, c))
 		}
@@ -132,6 +142,7 @@ func (app *Config) createModeratorPasswordDialog(i *ModeratorBoardButton) {
 	// size and show the dialog
 	addForm.Resize(fyne.Size{Width: 400})
 	addForm.Show()
+	app.MainWindow.Canvas().Focus(password)
 }
 
 func (app *Config) activateModeratorButton(i *ModeratorBoardButton) {

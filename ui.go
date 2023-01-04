@@ -1,12 +1,26 @@
 package main
 
 import (
+	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/container"
+	"log"
 )
 
 type PlayersBoard struct {
 	board      []*ModeratorBoardButton
 	playerName string
+}
+
+type Config struct {
+	App                fyne.App
+	MainWindow         fyne.Window
+	InfoLog            *log.Logger
+	ErrorLog           *log.Logger
+	ModeratorFields    [][]interface{}
+	AllPlayersBoards   []PlayersBoard
+	AllPlayerContainer *fyne.Container
+	FinalPlayerContent *fyne.Container
+	CreatePlayerButton fyne.CanvasObject
 }
 
 func (app *Config) makeUI() {
