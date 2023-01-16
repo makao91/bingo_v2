@@ -1,4 +1,4 @@
-package main
+package ui
 
 import (
 	"fyne.io/fyne/v2"
@@ -123,7 +123,7 @@ func (app *Config) launchModeratorButton(i *ModeratorBoardButton) func() {
 
 func (app *Config) createModeratorPasswordDialog(i *ModeratorBoardButton) {
 	password := widget.NewPasswordEntry()
-	password.Validator = validation.NewRegexp(app.getEnvVariable("MODERATOR_PASSWORD"), "Only true champion know the password")
+	password.Validator = validation.NewRegexp("champ", "Only true champion know the password")
 	// create a dialog
 	addForm := dialog.NewForm(
 		"Champion Board",
@@ -133,6 +133,7 @@ func (app *Config) createModeratorPasswordDialog(i *ModeratorBoardButton) {
 			{Text: "Password", Widget: password},
 		},
 		func(valid bool) {
+
 			if valid {
 				app.activateModeratorButton(i)
 			}

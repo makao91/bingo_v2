@@ -1,4 +1,4 @@
-package main
+package ui
 
 import (
 	"fyne.io/fyne/v2"
@@ -23,7 +23,7 @@ type Config struct {
 	CreatePlayerButton fyne.CanvasObject
 }
 
-func (app *Config) makeUI() {
+func (app *Config) MakeUI() {
 
 	//make player container
 	app.AllPlayerContainer = container.NewGridWithColumns(1)

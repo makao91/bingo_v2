@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bingo_v2/ui"
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
 	"log"
@@ -9,7 +10,7 @@ import (
 
 func main() {
 
-	var myApp Config
+	var myApp ui.Config
 
 	//create application
 	fyneApp := app.NewWithID("makao320")
@@ -25,7 +26,7 @@ func main() {
 	myApp.MainWindow.SetFixedSize(true)
 	myApp.MainWindow.SetMaster()
 
-	myApp.makeUI()
+	myApp.MakeUI()
 
 	// show and run the application
 	myApp.MainWindow.ShowAndRun()

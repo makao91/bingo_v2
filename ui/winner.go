@@ -1,4 +1,4 @@
-package main
+package ui
 
 import (
 	"fyne.io/fyne/v2"
@@ -65,7 +65,7 @@ func showWinner(winners []string, app *Config) {
 			app.AllPlayersBoards = nil
 			app.AllPlayerContainer = nil
 			app.FinalPlayerContent = nil
-			app.makeUI()
+			app.MakeUI()
 			app.MainWindow.Resize(fyne.NewSize(770, 410))
 			return
 		}
